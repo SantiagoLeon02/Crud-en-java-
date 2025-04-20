@@ -5,13 +5,19 @@ public class Main {
 
     public static void main(String[] args) {
 
+        //Importacion de la clase Scanner
         Scanner scan = new Scanner(System.in);
+
+        //Variable con la cual el programa quedara en un bucle infinito
         boolean continuar = true;
 
+        //Creacion de la estructura de datos
         ArrayList<String> listProductos = new ArrayList<>();
 
+        //Ciclo que contiene la variable continuar
         while(continuar){
 
+            //Presentacion de las funciones que realizara el programa
             System.out.println("------Menu------");
             System.out.println("1. Agregar un producto");
             System.out.println("2. Revisar la lista de procutos");
@@ -19,13 +25,21 @@ public class Main {
             System.out.println("4. Eliminar un producto o eliminar todo");
             System.out.println("5. Salir");
 
+            //Solicitud de ingreso de dato entero para realizar la funcion especificada
             System.out.print("Escoge una opcion: ");
             int opcion = scan.nextInt();
 
             scan.nextLine();
 
+                //Estructura Switch para el manejo de los casos
                 switch (opcion){
                     case 1:
+
+                        /*
+                        * Creacion de un ciclo infito ya que al ingresar el producto tendra la opcion si desea agregar
+                        * otro producto mas o no y dando una pregunta si desea salir
+                        *
+                        * */
                         while(true){
                             System.out.print("Ingresa un producto: ");
                             String producto = scan.nextLine().trim().toLowerCase();
@@ -43,6 +57,8 @@ public class Main {
                     break;
 
                     case 2:
+
+                        //Se presenta los productos ingresados y cuantos hay
                         System.out.println("Revision de productos");
 
                         if(listProductos.isEmpty()){
@@ -55,6 +71,12 @@ public class Main {
                     break;
 
                     case 3:
+
+                        /*
+                        * Se vuelve a repetr la sentencia de un bucle infinito pero esta vez pidiendo la modificacion de
+                        * un producto es decir si al modificar un producto desea modificar otro con la misma logica de
+                        * salida que el primer caso
+                        * */
                         while(true){
 
                             System.out.println("Lista de productos");
@@ -62,6 +84,7 @@ public class Main {
                                 System.out.println((i+1)+": "+listProductos.get(i));
                             }
 
+                            System.out.println("El producto tiene que digitarlo como aparece");
                             System.out.println("Que producto quieres modificar? ");
                             String viejo = scan.nextLine();
 
@@ -87,6 +110,12 @@ public class Main {
                     break;
 
                     case 4: {
+
+                        /*
+                        *Se repite el mismo escenario del bucle pero ahora contiene un menu y una sentencia switch
+                        * como menu donde tiene las 3 opciones de eliminar, vaciar por completo y volver al menu principal
+                        * */
+
 
                         boolean continuarEliminacion = true;
 
@@ -138,6 +167,8 @@ public class Main {
                     }
 
                     case 5:
+
+                        //Esta sentencia es para terminar el programa
                         continuar = false;
                         System.out.println("Saliendo del programa. ");
                         System.out.println("Adios");
